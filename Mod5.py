@@ -37,11 +37,16 @@ class Postgress:
 		#Metodo para la recoleccion de datos que necesita el reporte
 		try:
 			cursor = self.conn.cursor()
-			cursor.execute("select ")
-			print "Cosecha"
+			cursor.execute("select * from tabla")
+			datos_pishing = cursor.fetchall()
+			#Ahora se tiene que acomodar los datos en el reporte HTML
+			print type(datos_pishing)
+			for id in range(len(datos_pishing)):
+				for e in datos_pishing[id]:
+					print e
 		except:
-			print "Sorry, An error has ocurred"
+			print "Sorry, An error has ocurred in Cosecha"
 if __name__ =="__main__":
 	#print host
 	repe = Postgress()
-	repe.version()
+	repe.Cosecha()
