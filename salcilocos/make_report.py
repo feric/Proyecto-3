@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
+import os
 
 contenido = """
 <!DOCTYPE html>
@@ -16,7 +17,9 @@ contenido = """
 </html>
 """
 
-archivo = open('salida1.html','w')
+archivo = open('reporte_web.html','w')
 archivo.write(contenido)
 archivo.close()
 
+#wkhtmltopdf reporte_web.html archivo.pdf
+os.system("wkhtmltopdf reporte_web.html archivo.pdf")
