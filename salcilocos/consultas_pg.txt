@@ -1,0 +1,57 @@
+#################################################################################################
+
+# 1.- consulta para obtener el nombre de la institución mediante el id de los datos_phishing 
+select i.nombre
+ from instituciones as i
+ join correos as c
+ on i.id_institucion = c.id_institucion
+  join datos_phishing as df
+  on df.id_url = c.id_url
+   where df.id_datos = 6;
+
+# 2.- consulta para obtener la url phishing mediante el id de los datos_phishing    
+select u.url
+ from urls as u
+ join datos_phishing as df
+ on df.id_url = u.id_url
+  where df.id_datos = 6;
+
+# 4.- consulta para obtener la dir ip phishing mediante el id de los datos_phishing  
+select ip from datos_phishing
+ where id_datos = 6;
+  
+# 6.- consulta que devuelve el registro asn (whois) mediante el id de datos_phishing
+select asn from datos_phishing
+ where id_datos = 6;   
+
+# 8.- consulta que devuelve el resumen del análisis de cuckoo (tabla) mediante el id de los datos_phishing
+select a.md5, a.sha1, a.nombre_archivo, a.extension, a.aplicacion, a.referencia, a.fecha_inicio, a.fecha_fin, a.yara  from adjuntos as a
+ join correos as c
+ on c.adjuntos_md5 = a.md5
+  join datos_phishing as df
+  on df.id_url = c.id_url
+   where df.id_datos = 6;
+
+# 9.- consulta que devuelve el registro tor mediante el id de datos_phishing
+select tor from datos_phishing
+ where id_datos = 6;  
+ 
+#10.- consulta que devuelve el registro proxy mediante el id de datos_phishing
+select proxy from datos_phishing
+ where id_datos = 6;  
+
+#11.- consulta que devuelve los registros pf, nf,y snort mediante el id de datos_phishing
+select pf, nf, snort from datos_phishing
+ where id_datos = 6;  
+
+###################################################
+ 
+# Sin definir aún - Consulta para obtener el nombre del archivo adjunto mediante el id de los datos_phishing  
+select a.nombre_archivo
+ from adjuntos as a
+ join correos as c
+ on c.adjuntos_md5 = a.md5
+  join datos_phishing as df
+  on df.id_url = c.id_url
+   where df.id_datos = 6;
+
