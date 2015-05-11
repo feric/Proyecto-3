@@ -10,9 +10,10 @@ def main():
 	repe = Postgress()
 	#Obtiene los registros de la tabla de los datos phishing
 	dPhishing = repe.Get_dPhishing()
-	for linea in dPhishing:
-		for element in linea:
-			print element
+	print dPhishing
+#	for linea in dPhishing:
+#		for element in linea:
+#			print element
 	############################################################
 	# Seccion que usa funciones para la generacion de reportes #
 	############################################################
