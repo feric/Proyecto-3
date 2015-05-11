@@ -29,6 +29,8 @@ class Postgress:
 		try:
 			cursor = self.conn.cursor()
 			cursor.execute("select version()")
+			reporte = open("salcilocos/template.html","r")
+			reporte
 			vers = cursor.fetchall()
 			print vers
 		except:
