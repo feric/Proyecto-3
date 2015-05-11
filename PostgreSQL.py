@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import psycopg2
+import psycopg2.extras
 import datas
 import base64
 
@@ -27,7 +28,8 @@ class Postgress:
 			print "Sorry, unable to disconnect from database"
 	def version(self):
 		try:
-			cursor = self.conn.cursor()
+			#cursor = self.conn.cursor()
+			cursor = self.conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 			cursor.execute("select version()")
 			vers = cursor.fetchall()
 			print vers
