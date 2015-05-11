@@ -14,7 +14,7 @@ class Postgress:
 	def __init__(self):
 		try:
 			credentials ="dbname={0} user={1} host={2} password={3}".format(dbname,user,host,pwd)
-			print credentials
+			print credentials[:-20]
 			self.conn=psycopg2.connect(credentials)
 			print "Successfull"
 			#self.conn.close()
@@ -29,8 +29,6 @@ class Postgress:
 		try:
 			cursor = self.conn.cursor()
 			cursor.execute("select version()")
-			reporte = open("salcilocos/template.html","r")
-			reporte
 			vers = cursor.fetchall()
 			print vers
 		except:
@@ -39,16 +37,37 @@ class Postgress:
 		#Metodo para la recoleccion de datos que necesita el reporte
 		try:
 			cursor = self.conn.cursor()
-			cursor.execute("select * from tabla")
+			cursor.execute("select * from datos_phishing")
 			datos_pishing = cursor.fetchall()
 			#Ahora se tiene que acomodar los datos en el reporte HTML
-			print type(datos_pishing)
+			#print type(datos_pishing)
 			for id in range(len(datos_pishing)):
 				for e in datos_pishing[id]:
 					print e
 		except:
 			print "Sorry, An error has ocurred in Cosecha"
+
+class Reportes:
+	csirt = False
+	def __init__(self,csirt=False):
+		if(csirt):
+			print "Generar Reporte para el Equipo de Respuesta a incidentes"
+		else:
+			print "Generar reporte para los administradores"
+	def Reporte_Incidentes(self):
+		try:
+			
+		except:
+			print "No fue posible generar el reporte para el equipo de Respjuesta a Incidentes"
+	def Reporte_Admins(self):
+		try:
+			
+		except:
+			print "No fue posible generar el reporte para los administradores"
+def main():
+	#repe = Postgress()
+	#repe.Cosecha()
+	generar = Reportes()
+
 if __name__ =="__main__":
-	#print host
-	repe = Postgress()
-	repe.Cosecha()
+	main()

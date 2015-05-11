@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./estilos.css" type="text/css" />
+	</head>
+	<body>
+		<div class="log">
+				<table class="Logos">
+					<tr>
+						<td rowspan=2><img src="../logos/unam_cert.jpg" width="100" height="100"></img></td>
+						<td colspan=2><h1>UNAM-CERT</h1></td>
+						<td rowspan=2><img src="../logos/cert_key.png" width="100" height="65"></img></td>
+					</tr>
+					<tr>
+						<td><h5>Coordinación de Seguridad de la Información</h5></h5></td>
+					</tr>
+					<tr><th colspan="100%">Reporte de Pishing</th></tr>
+				</table>
+		</div>
+		<div>
+			<table>
+				<tr>
+					<td colspan="100%">Resumen del analisis realizado a la muestra X</td>
+				</tr>
+				<br />
+				<tr id="summary">
+					<th>Pishing</th>
+					<th>Redirección</th>
+					<th>IP phishing</th>
+					<th>IP redirección</th>
+					<th>IP redirección</th>
+					<th>Malware URL</th>
+				</tr>
+				<tr>
+					<td>Select * from piching</td>
+					<td>Select * from redireccion</td>
+					<td>Select * from ipPiching</td>
+					<td>Select * from ipRedireccion</td>
+					<td>select * from date</td>
+					<td>select * from malware</td>
+				</tr>
+				<tr>
+					<td>{0}</td>
+					<td>{1}</td>
+					<td>{2}</td>
+					<td>{3}</td>
+					<td>{4}</td>
+					<td>{5}</td>
+				</tr>
+				<tr>
+					<td colspan="100%"><h5>Remplazar {numero} por los registros cosechados de la Base de datos con la funcion format</h5></td>
+				</tr>
+				<tr>
+					<td colspan="100%">{6}</td>
+				</tr>
+				<tr>
+					<th colspan="100%">
+						<h1 id="reglas">Reglas de Filtrado</h1>
+					</th>
+				</tr>
+				<tr>
+					<td colspan="100%">Aqui van las reglas del SNORT</td>
+				</tr>
+				<tr>
+					<td colspan="100%">{8}</td>
+				</tr>
+				<tr>
+					<th colspan="100%">
+						<h1 id="whois">Otros Datos</h1>
+					</th>
+				</tr>
+			</table>
+		</div>
+		<ul>
+			{0}
+		</ul>
+	</body>
+</html>
