@@ -7,15 +7,17 @@ class Reportes:
 		self.pathTemplate="./salcilocos/"
 	def __del__(self):
 		self.pathTemplate=''
-	def Reporte_Incidentes(self,datosPhishing):
+	def Reporte_Incidentes(self,pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11):
 		try:
 			print "Generar Reporte para el Equipo de Respuesta a incidentes"
 			sleep(2)
 			archivoRI = open(self.pathTemplate+"template_csirt.html","r").read()
 			#print type(archivoRI)
-			archivoRI = archivoRI.format(datosPhishing,1,2,3,4,5,6,7,8)
+			archivoRI = archivoRI.format(pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11)
+			#print archivoRI
+			# Descomentar lo de abajo
 			fiile = self.pathTemplate+"ReportResponseTeam-"+strftime("%Y-%m-%d-%S")+".html"
-			print type(fiile)
+			#print type(fiile)
 			#Genera el reporte en HTML
 			rIncidentes = open(fiile,"w")
 			rIncidentes.write(archivoRI)

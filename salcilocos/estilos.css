@@ -1,20 +1,29 @@
 body{
-		text-align:center;
+	text-align:center;
 	}
 table{
-		border:5px;
-		margin-left: auto;
-		margin-right:auto;
+	border:5px;
+	margin-left: auto;
+	margin-right:auto;
 	}
 th{
-		background-color:#000214;
-		color:white;
+	font-size:9pt;
+	background-color:#052A46;
+	color:white;
 	}
 div{
-		border-bottom-width:thick;
+	border-bottom-width:thick;
 	}
 .Logos{
-		border-collapse: collapse;
-		border: 5px solid black;
-		border-color:#000214;
+	border-collapse: collapse;
+	border: 5px solid black;
+	border-color:#052A46;
 	}
+
+.Header{
+	background-color:white;
+	color:black;
+	border-top:2px solid #052A46;
+	font-size:15pt;
+	text-align:left;
+}
