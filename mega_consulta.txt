@@ -1,0 +1,40 @@
+###############################################################################################################   
+# Mega consulta, los campos van en este orden:
+#
+########## "Primeros datos del reporte" 
+# 0 -> URL Phishing, 1 -> URL Redirección(basura -> url), 2 -> IP phishing, 3 -> IP redirección(basura -> ip), 
+# 4 -> Malware(será remplazado por url_malware), 5 -> Institucion Afectada, 
+#
+########## "Análisis de Cuckoo"
+# 6 -> MD5, 7 -> SHA1, 8 -> Nombre de archivo adjunto, 9 -> Extensión archivo, 10 -> Tipo de aplicación, 
+# 11 -> Archivo de Referencia, 12 -> Fecha inicio, 13 -> Fecha fin, 14 -> Yara
+#
+########## "Reglas de Filtrado" 
+# 15 -> P. Filter, 16 -> N. Filter, 17 ->  Snort
+#
+########## "Registros de Whois"
+# 18 -> Dominio(basura -> datos_phishing.asn), pen -> Admin(No implementado)
+#
+########## "Tor"
+# 19 -> TOR 
+#
+########## "Proxy"
+# 20 -> Proxy
+#
+###############################################################################################################
+
+select u.url, u.url, df.ip, df.ip, a.nombre_archivo, i.nombre,
+a.md5, a.sha1, a.nombre_archivo, a.extension, a.aplicacion, a.referencia, a.fecha_inicio, a.fecha_fin, a.yara,
+df.pf, df.nf, df.snort,
+df.asn, df.tor, df.proxy
+ from instituciones as i
+  join correos as c
+  on i.id_institucion = c.id_institucion
+   join adjuntos as a
+   on c.adjuntos_md5 = a.md5
+    join urls as u
+    on c.id_url = u.id_url
+     join datos_phishing as df
+     on u.id_url = df.id_url
+	  where df.id_datos = 6;
+
