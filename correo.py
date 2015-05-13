@@ -34,9 +34,9 @@ class Correos():
 			for dest in to:
 				Reportes.puntitos()
 				print "\n> {0} <".format(dest)
-			#smtp = smtplib.SMTP(server)
-			#smtp.sendmail(fro, to, msg.as_string())
-			#smtp.close()
+			smtp = smtplib.SMTP(server)
+			smtp.sendmail(fro, to, msg.as_string())
+			smtp.close()
 
 		except:
 			print "Error inside correo.py"

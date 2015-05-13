@@ -5,7 +5,7 @@
 # 			separados por comas 			#
 #############################################
 #destinatarios = ['dafteric@gmail.com','eric.castaneda.nazario@gmail.com']
-destinatarios = ['dafteric@gmail.com']
+destinatarios = ['elagos@bec.seguridad.unam.mx']
 #################################################################################
 # Plantilla para los reportes enviados para el Equipo de Respuesta a Incidentes #
 #################################################################################
