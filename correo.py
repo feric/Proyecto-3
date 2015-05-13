@@ -34,12 +34,9 @@ class Correos():
 			for dest in to:
 				Reportes.puntitos()
 				print "\n> {0} <".format(dest)
-			smtp = smtplib.SMTP(server)
-			smtp.sendmail(fro, to, msg.as_string())
-			smtp.close()
+			#smtp = smtplib.SMTP(server)
+			#smtp.sendmail(fro, to, msg.as_string())
+			#smtp.close()
 
 		except:
 			print "Error inside correo.py"
-#enviar = Correos()
-#enviar.sendMail(['eric.castaneda.nazario@gmail.com'],'lalo <root@localhost.com>','Reporte de Phishing','Reporte de Phishing generado Hoy :)',['file1.html','file2.pdf'])
-#sendMail(['eric@ServerCorreo.com'],'iPhishing <root@localhost.com>','Reporte de Phishing','Reporte de Phishing generado Hoy :)',['./salcilocos/ReportResponseTeam-2015-05-12-17.html','./salcilocos/ReportResponseTeam-2015-05-12-17.pdf'])

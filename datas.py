@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 #coding: utf-8
-
-# Ingresar los correos de los destinatarios separados por comas
-destinatarios = ['dafteric@gmail.com','eric.castaneda.nazario@gmail.com']
-
-# Plantilla para los reportes enviados para el Equipo de Respuesta a Incidentes
+#############################################
+# Ingresar los correos de los destinatarios #
+# 			separados por comas 			#
+#############################################
+#destinatarios = ['dafteric@gmail.com','eric.castaneda.nazario@gmail.com']
+destinatarios = ['dafteric@gmail.com']
+#################################################################################
+# Plantilla para los reportes enviados para el Equipo de Respuesta a Incidentes #
+#################################################################################
 template_CSIRT="""
 <!DOCTYPE html>
 <html>
@@ -33,7 +37,7 @@ template_CSIRT="""
 				</tr>
 				<br />
 				<tr>
-					<th colspan="100%" class="Header">Phishing</th>
+					<th colspan="100%" class="Header">URL Phishing</th>
 				</tr>
 				<tr>
 					<td colspan="100%">
@@ -41,7 +45,7 @@ template_CSIRT="""
 					</td>
 				</tr>
 				<tr id="">
-					<th colspan="100%" class="Header">Redirección</th>
+					<th colspan="100%" class="Header">URL Redirección</th>
 				</tr>
 				<tr>
 					<td colspan="100%">{1}</td>
@@ -59,7 +63,7 @@ template_CSIRT="""
 					<td colspan="100%">{3}</td>
 				</tr>
 				<tr>
-					<th colspan="100%" class="Header">Malware</th>
+					<th colspan="100%" class="Header">URL Malware</th>
 				</tr>
 				<tr>
 					<td colspan="100%">{4}</td>
@@ -82,7 +86,31 @@ template_CSIRT="""
 					</td>
 				</tr>
 				<tr>
-					<td colspan="100%">{6}</td>
+					<td colspan="100%">MD5:::: {6}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">SHA 1:::: {7}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Nombre del adjunto :::: {8}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Extensión :::: {9}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Tipo de Aplicación :::: {10}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Archivo de Referencia :::: {11}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Fecha de inicio :::: {12}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Fecha de Fin :::: {13}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Yara :::: {14}</td>
 				</tr>
 				<tr>
 					<th colspan="100%">
@@ -90,10 +118,13 @@ template_CSIRT="""
 					</th>
 				</tr>
 				<tr>
-					<td colspan="100%">{7}</td>
+					<td colspan="100%">Packet Filter :::: {15}</td>
 				</tr>
 				<tr>
-					<td colspan="100%">{8}</td>
+					<td colspan="100%">NetFilter :::: {16}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Snort :::: {17}</td>
 				</tr>
 				<tr>
 					<th colspan="100%">
@@ -104,7 +135,7 @@ template_CSIRT="""
 					<td colspan="100%"> Whois
 						<ul>
 							<li>
-								<label>Dominio: </label><label>http://www.example.com</label>
+								<label>Dominio: </label><label>ASN :::: {18}</label>
 							</li>
 						
 							<li>
@@ -119,16 +150,14 @@ template_CSIRT="""
 				</tr>
 				
 				<tr>
-					<td  colspan="3"><h5>Datos del tor</h5></td>
-					<td  colspan="3"><h5>Datos del Proxy</h5></td>
+					<td  colspan="3"><h5>Datos del tor {19}</h5></td>
+					<td  colspan="3"><h5>Datos del Proxy {20}</h5></td>
 				</tr>
 			</table>
 		</div>
-		<ul>
-			{0}
-		</ul>
 	</body>
 </html>
+
 """
 #tsoh="MTAuMTAuNjAuMTI4Cg=="
 tsoh="MTI3LjAuMC4xCg=="
@@ -137,8 +166,9 @@ dwp="cmVwb3J0ZWFkb3IK"
 #emanbd="cHJ1ZWJhcwo="
 emanbd="bXlkYgo="
 #emanbd="bXlkYjIK"
-
-#Plantilla de Reportes enviados a los administradores
+########################################################
+# Plantilla de Reportes enviados a los administradores #
+########################################################
 template_Admin="""
 <!DOCTYPE html>
 <html>
@@ -220,3 +250,33 @@ template_Admin="""
 	</body>
 </html>
 """
+
+asunto= "Reporte UNAM-CERT [TICKET] Sitio fraudulento en su red (Phishing Scam)"
+cuerpo= """
+Buen día
+En UNAM-CERT hemos recibido y confirmado reportes sobre un sitio web fraudulento, localizado en su red:
+
+URL: {0}
+IP: {1}
+
+Este sitio es utilizado para perjudicar a los usuarios legítimos de [INSTITUCION] {2}. Los usuarios podrán comprometer sus datos y luego podrán ser defraudados
+por favor, tome las medidas necesarias para dar de baja el sitio. UNAM-CERT le agradecerá cualquier información adicional que nos pueda proporcionar sobre este incidente de seguridad.
+
+La base de datos de WHOIS nos mostró sus datos como contacto para este segmento de red. Si usted no es la persona indicada para recibir este tipo de mensajes,
+por favor háganoslo saber o redirija el mensaje a la persona adecuada.
+
+De antemano gracias por su atención a este reporte
+
+--
+UNAM-CERT
+Equipo de Respuesta a Incidentes de Seguridad en Cómputo.
+Coordinación de Seguridad de la Información, DGTIC, UNAM
+email: incidentes@eguridad.unam.mx
+Circuito Exterior, C.U.    Tel. +52 (55) 5622-81-69
+Del. Coyoacán    http://www.seguridad.unam.mx
+04510 México D.F.
+"""
+
+
+
+

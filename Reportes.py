@@ -18,21 +18,28 @@ class Reportes:
 			sys.stdout.write("{0}".format(c))
 			sys.stdout.flush()
 			sleep(0.15)
-	def Reporte_Incidentes(self,pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11):
+	def Reporte_Incidentes(self,pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11,pos12,pos13,pos14,pos15,pos16,pos17,pos18,pos19,pos20):
 		try:
 			print "Generando Reporte para el Equipo de Respuesta a incidentes"
+			a = pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11,pos12,pos13,pos14,pos15,pos16,pos17,pos18,pos19,pos20
+			print a
 			sleep(2)
 			#archivoRI = open(self.pathTemplate+"template_csirt.html","r").read()
 			archivoRI = datas.template_CSIRT
-			archivoRI = archivoRI.format(pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11)
+			archivoRI = archivoRI.format(pos1,pos2,pos3,pos4,pos5,pos6,pos7,pos8,pos9,pos10,pos11,pos12,pos13,pos14,pos15,pos16,pos17,pos18,pos19,pos20)
+			print "flag"
 			nombre = self.pathTemplate+"ReportResponseTeam-"+strftime("%Y-%m-%d-%S")
 			fiile = nombre+".html"
 			pdfiile = nombre+".pdf"
-			#print type(fiile)
-			#Genera el reporte en HTML
+			#############################
+			# Genera el reporte en HTML #
+			#############################
 			rIncidentes = open(fiile,"w")
 			rIncidentes.write(archivoRI)
 			rIncidentes.close()
+			############################
+			# Genera el reporte en PDF #
+			############################
 			system("wkhtmltopdf {0} {1}".format(fiile,pdfiile))
 			print """Reporte Generado {0}
 Reporte Generado {1}

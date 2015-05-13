@@ -25,7 +25,7 @@
 				</tr>
 				<br />
 				<tr>
-					<th colspan="100%" class="Header">Phishing</th>
+					<th colspan="100%" class="Header">URL Phishing</th>
 				</tr>
 				<tr>
 					<td colspan="100%">
@@ -33,7 +33,7 @@
 					</td>
 				</tr>
 				<tr id="">
-					<th colspan="100%" class="Header">Redirección</th>
+					<th colspan="100%" class="Header">URL Redirección</th>
 				</tr>
 				<tr>
 					<td colspan="100%">{1}</td>
@@ -51,7 +51,7 @@
 					<td colspan="100%">{3}</td>
 				</tr>
 				<tr>
-					<th colspan="100%" class="Header">Malware</th>
+					<th colspan="100%" class="Header">URL Malware</th>
 				</tr>
 				<tr>
 					<td colspan="100%">{4}</td>
@@ -74,7 +74,31 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="100%">{6}</td>
+					<td colspan="100%">MD5:::: {6}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">SHA 1:::: {7}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Nombre del adjunto :::: {8}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Extensión :::: {9}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Tipo de Aplicación :::: {10}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Archivo de Referencia :::: {11}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Fecha de inicio :::: {12}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Fecha de Fin :::: {13}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Yara :::: {14}</td>
 				</tr>
 				<tr>
 					<th colspan="100%">
@@ -82,10 +106,13 @@
 					</th>
 				</tr>
 				<tr>
-					<td colspan="100%">{7}</td>
+					<td colspan="100%">Packet Filter :::: {15}</td>
 				</tr>
 				<tr>
-					<td colspan="100%">{8}</td>
+					<td colspan="100%">NetFilter :::: {16}</td>
+				</tr>
+				<tr>
+					<td colspan="100%">Snort :::: {17}</td>
 				</tr>
 				<tr>
 					<th colspan="100%">
@@ -96,7 +123,7 @@
 					<td colspan="100%"> Whois
 						<ul>
 							<li>
-								<label>Dominio: </label><label>http://www.example.com</label>
+								<label>Dominio: </label><label>ASN :::: {18}</label>
 							</li>
 						
 							<li>
@@ -111,13 +138,10 @@
 				</tr>
 				
 				<tr>
-					<td  colspan="3"><h5>Datos del tor</h5></td>
-					<td  colspan="3"><h5>Datos del Proxy</h5></td>
+					<td  colspan="3"><h5>Datos del tor {19}</h5></td>
+					<td  colspan="3"><h5>Datos del Proxy {20}</h5></td>
 				</tr>
 			</table>
 		</div>
-		<ul>
-			{0}
-		</ul>
 	</body>
 </html>
