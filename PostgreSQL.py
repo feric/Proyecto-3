@@ -26,15 +26,6 @@ class Postgress:
 			self.conn.close()
 		except:
 			print "Sorry, unable to disconnect from database"
-	def version(self):
-		try:
-			#cursor = self.conn.cursor()
-			cursor = self.conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-			cursor.execute("select version()")
-			vers = cursor.fetchall()
-			print vers
-		except:
-			print "Sorry, unable to connect execute sentence"
 	def Get_dPhishing(self):
 		#Metodo para la recoleccion de datos que necesita el reporte
 		try:
