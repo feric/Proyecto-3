@@ -5,7 +5,7 @@
 # 			separados por comas 			#
 #############################################
 #destinatarios = ['dafteric@gmail.com','eric.castaneda.nazario@gmail.com']
-destinatarios = ['elagos@bec.seguridad.unam.mx']
+destinatarios = ['dafteric@gmail.com']
 #################################################################################
 # Plantilla para los reportes enviados para el Equipo de Respuesta a Incidentes #
 #################################################################################
@@ -259,7 +259,7 @@ En UNAM-CERT hemos recibido y confirmado reportes sobre un sitio web fraudulento
 URL: {0}
 IP: {1}
 
-Este sitio es utilizado para perjudicar a los usuarios legítimos de [INSTITUCION] {2}. Los usuarios podrán comprometer sus datos y luego podrán ser defraudados
+Este sitio es utilizado para perjudicar a los usuarios legítimos de {2}. Los usuarios podrán comprometer sus datos y luego podrán ser defraudados
 por favor, tome las medidas necesarias para dar de baja el sitio. UNAM-CERT le agradecerá cualquier información adicional que nos pueda proporcionar sobre este incidente de seguridad.
 
 La base de datos de WHOIS nos mostró sus datos como contacto para este segmento de red. Si usted no es la persona indicada para recibir este tipo de mensajes,
