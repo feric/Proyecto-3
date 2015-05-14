@@ -41,8 +41,9 @@ def main():
 		#################################################################
 		# Los destinatarios de los reportes se encuentran en el archivo #
 		# 						datas.py 								#
-		#################################################################
-		enviar.sendMail(datas.destinatarios,'iPhishing <reportes@iPhishing.com>','Reporte de Phishing','Reporte de Phishing generado Hoy :)',[pedefe])
+		################################l#################################
+		#enviar.sendMail(datas.destinatarios,'iPhishing <reportes@iPhishing.com>','Reporte de Phishing','Reporte de Phishing generado Hoy :)',[pedefe])
+		enviar.sendMail(datas.destinatarios,'iPhishing <reportes@iPhishing.com>',datas.asunto,datas.cuerpo.format(dPhishing[0][0],dPhishing[0][2],dPhishing[0][5]),[pedefe])
 		print "Enviando el correo"
 		Reportes.puntitos()
 		print "[OK]\nCorreo enviado"
