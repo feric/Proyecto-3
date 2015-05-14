@@ -37,6 +37,5 @@ class Correos():
 			smtp = smtplib.SMTP(server)
 			smtp.sendmail(fro, to, msg.as_string())
 			smtp.close()
-
 		except:
 			print "Error inside correo.py"

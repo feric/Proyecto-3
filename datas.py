@@ -240,18 +240,19 @@ template_Admin="""
 					</th>
 				</tr>
 				<tr>
-					<td colspan="100%">Packet Filter :::: {15}</td>
+					<td colspan="100%">Packet Filter :::: {6}</td>
 				</tr>
 				<tr>
-					<td colspan="100%">NetFilter :::: {16}</td>
+					<td colspan="100%">NetFilter :::: {7}</td>
 				</tr>
 				<tr>
-					<td colspan="100%">Snort :::: {17}</td>
+					<td colspan="100%">Snort :::: {8}</td>
 				</tr>
 			</table>
 		</div>
 	</body>
 </html>
+
 """
 
 asunto= "Reporte UNAM-CERT [TICKET] Sitio fraudulento en su red (Phishing Scam)"
@@ -279,7 +280,3 @@ Circuito Exterior, C.U.    Tel. +52 (55) 5622-81-69
 Del. Coyoacán    http://www.seguridad.unam.mx
 04510 México D.F.
 """
-
-
-
-
